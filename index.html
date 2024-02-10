@@ -1,19 +1,184 @@
 <!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Assignment1 Page</title>
-</head>
-
-<body>
-    <!-- 
+<!-- 
 Name: Sehyoun Jang
 Email: sej324@lehighe.du
 Class Number: CSE264-011
 Assignment 1
 -->
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sehyoun Jang's Profile</title>
+    <style>
+        body {
+            background-color: white;
+            color: #333;
+        }
+
+        #container {
+            width: 800px;
+            margin: 0 auto;
+            /* center the container */
+            padding: 20px;
+
+        }
+
+
+        header h1 {
+            color: white;
+        }
+
+        header {
+            padding: 10px;
+            text-align: center;
+            background-color: black;
+        }
+
+        .left-column,
+        .right-column {
+            box-sizing: border-box;
+            padding: 10px;
+        }
+
+        .left-column {
+            padding: 10px;
+            float: left;
+            width: 60%;
+        }
+
+        .right-column {
+            padding: 10px;
+            float: right;
+            width: 34%;
+
+        }
+
+        footer {
+            padding: 10px;
+            text-align: center;
+            clear: both;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+            /* Ensure it takes full width if needed */
+        }
+
+        table {
+            width: 60%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+
+        th,
+        td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #76F069;
+            color: white;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        tr:nth-child(odd) {
+            background-color: white;
+        }
+
+        li {
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="container">
+        <header>
+            <h1>Sehyoun Jang</h1>
+        </header>
+        <div class="left-column">
+
+            <h2>Bio</h2>
+
+            <h3>Early Life</h3>
+            <p> As a typical South Korean high school student, I embarked on an unconventional educational path by
+                studying at a local university, then as an exchange student in the U.S., followed by transferring to a
+                community college and finally to Lehigh University. This unplanned journey into studying abroad turned
+                out to be a remarkable success.
+
+
+            </p>
+            <h3>Life at Lehigh</h3>
+            <p>
+                Starting with challenging dorm life, I've adapted to a more fulfilling off-campus lifestyle. Impressed
+                by the quality of Lehigh's coursework, my academic journey has had its ups and downs, pushing me to
+                strive harder in my current studies after a disappointing second semester.
+            </p>
+            <h3>Future Life</h3>
+            <p>
+                Post-graduation, I plan to return to South Korea with aspirations not of joining the conventional job
+                market, but to pursue my passion for teaching coding. My ultimate dream is to establish a renowned
+                academy, sharing my knowledge and making a meaningful impact.
+            </p>
+            <h2>Favorites</h2>
+            <ul>
+                <li>Color: White</li>
+                <li>Food: Sushi</li>
+                <li>Animal: Cat</li>
+                <li>Movie: Inception</li>
+                <li>Book: The Selfish Gene</li>
+            </ul>
+            <h2>Courses</h2>
+            <ol>
+                <li>CSE202: Computer Organization and Architecture</li>
+                <li>CSE262: Programming language</li>
+                <li>CSE264: Web Programming</li>
+                <li>CSE280: Capstone Project</li>
+                <li>IR002: Current Issues in World Affairs</li>
+                <li>BIOS041: Introduction to Cellular and Molecular Biology</li>
+            </ol>
+
+            <h2>Music</h2>
+            <table>
+                <tr>
+                    <th>Song</th>
+                    <th>Artist</th>
+                </tr>
+                <tr>
+                    <td>death bed</td>
+                    <td>Powfu feat.beabadoobee</td>
+                </tr>
+                <tr>
+                    <td>I Need you</td>
+                    <td>Huhgak, Zia</td>
+                </tr>
+                <tr>
+                    <td>Old Song</td>
+                    <td>Standing Eggs</td>
+                </tr>
+            </table>
+        </div>
+        <aside class="right-column">
+            <img src="profile.jpg" alt="My profile photo" style="width: 263px; height: auto;">
+            <h2>Fun Facts</h2>
+            <ol>
+                <li>I have changed my major twice and attended four different universities throughout my academic
+                    journey.</li>
+                <li>I like boring topics like philosophy, economics and politics.</li>
+                <li>When I rest, I solve programming algorithm problems</li>
+                <li>I have an incredibly cute cat. But I don't leave a picture due to lack of space.</li>
+            </ol>
+    </div>
+    <footer>
+        <p>© 2024 Sehyoun Jang. All rights reserved.</p>
+    </footer>
+    </div>
 </body>
 
 </html>
