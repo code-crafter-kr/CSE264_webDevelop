@@ -7,6 +7,10 @@ body {
     background-color: #f0f0f0;
 }
 
+.solved { /* Change the color when is has been solved */
+    background-color: #90ee90;
+}
+
 .puzzle-container {
     text-align: center;
 }

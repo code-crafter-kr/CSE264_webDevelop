@@ -1,9 +1,9 @@
 
 
 document.addEventListener('DOMContentLoaded', function() {
-    let solving = false;
+    let solving = false; // Track the status of the puzzle
 
-    let puzzle = [
+    let puzzle = [ // initial state of the puzzle
         [ 1,  2,  3,  4],
         [ 5,  6,  7,  8],
         [ 9,  10, 11, 12],
@@ -18,12 +18,12 @@ document.addEventListener('DOMContentLoaded', function() {
         for (let j = 0; j < 4; j++) {
             const td = document.createElement('td');
 
-            td.textContent = puzzle[i][j] !== 'NONE' ? puzzle[i][j] : ''; 
+            td.textContent = puzzle[i][j] !== 'NONE' ? puzzle[i][j] : '';  // allocate the number to the cell / NONE is empty cell
             if (puzzle[i][j] === 'NONE') {
                 td.classList.add('empty-cell');
             }
 
-            td.addEventListener('click', (function(iLocal, jLocal) {
+            td.addEventListener('click', (function(iLocal, jLocal) { // Add event listener to each cell
                 return function() {
                     cellClickEvent(iLocal, jLocal);
                 };
@@ -48,13 +48,15 @@ document.addEventListener('DOMContentLoaded', function() {
     resetButton.addEventListener('click', resetTable);
     puzzleContainer.appendChild(resetButton);
 
+    // Shuffle the puzzle
     function shuffleArray(array) {
         for (let i = array.length - 1; i > 0; i--) {
             const j = Math.floor(Math.random() * (i + 1));
             [array[i], array[j]] = [array[j], array[i]]; 
         }
     }
-    
+
+    // Scramble the puzzle
     function scramblePuzzle() {
         let flattened = puzzle.flat();
         shuffleArray(flattened);
@@ -69,6 +71,7 @@ document.addEventListener('DOMContentLoaded', function() {
         solving = false;
     }
 
+    // Check if the puzzle is solvable
     function isSolvable(puzzle) {
         let inversions = 0;
         let flattened = puzzle.flat();
@@ -96,6 +99,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
     
+    // Update the table
     function updateTable() {
         const trs = table.getElementsByTagName('tr');
         for (let i = 0; i < 4; i++) {
@@ -103,10 +107,13 @@ document.addEventListener('DOMContentLoaded', function() {
             for (let j = 0; j < 4; j++) {
                 tds[j].textContent = puzzle[i][j] !== 'NONE' ? puzzle[i][j] : '';
                 tds[j].onclick = () => cellClickEvent(i, j);
+                tds[j].classList.remove('solved');
             }
 
         }
     }
+
+    // Reset the table
     function resetTable(){
         for (let i = 0; i < 4; i++) {
             puzzle[i] = [i * 4 + 1, i * 4 + 2, i * 4 + 3, i * 4 + 4];
@@ -116,22 +123,20 @@ document.addEventListener('DOMContentLoaded', function() {
         solving = false;
     }
     
-
+    // Swap the cells
     function swapCells(i, j, emptyI, emptyJ) {
-        // 클릭된 셀과 빈 셀의 위치를 교환
         solving = true;
         let temp = puzzle[i][j];
         puzzle[i][j] = puzzle[emptyI][emptyJ];
         puzzle[emptyI][emptyJ] = temp;
-        updateTable(); // 테이블 업데이트
-        if (isSolved(puzzle)) {
-            solving = false;
-            alert('Solved!');
+        updateTable(); // update table
+        if (isSolved(puzzle)) { // if the puzzle is solved
+            solving = false; // initialize the solving status - false
         }
     }
     
     function cellClickEvent(i, j) {
-        // 빈 칸('NONE')의 위치 찾기
+        // find the empty cell
         let emptyI, emptyJ;
         puzzle.find((row, rowIndex) => {
             let colIndex = row.indexOf('NONE');
@@ -143,12 +148,13 @@ document.addEventListener('DOMContentLoaded', function() {
             return false;
         });
     
-        // 클릭된 셀이 빈 칸과 인접한지 확인
+        // check if the cell is next to the empty cell
         if ((Math.abs(emptyI - i) === 1 && emptyJ === j) || (Math.abs(emptyJ - j) === 1 && emptyI === i)) {
             swapCells(i, j, emptyI, emptyJ);
         }
     }
     
+    // Check if the puzzle is solved
     function isSolved(puzzle) {
         for (let i = 0; i < 4; i++) {
             for (let j = 0; j < 4; j++) {
@@ -161,6 +167,10 @@ document.addEventListener('DOMContentLoaded', function() {
                 }
             }
         }
+        // Add solved class to all cells - color change
+        document.querySelectorAll('td').forEach(td => {
+            td.classList.add('solved');
+        });
         return true;
     }
 });
