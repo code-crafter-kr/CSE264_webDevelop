@@ -52,8 +52,37 @@ document.addEventListener('DOMContentLoaded', function() {
         for (let i = 0; i < 4; i++) {
             puzzle[i] = flattened.slice(i * 4, i * 4 + 4);
         }
-    
+        while (isSolvable(puzzle) === false){
+            scramblePuzzle();
+        }
         updateTable();
+    }
+
+    function isSolvable(puzzle) {
+        let inversions = 0;
+        let flattened = puzzle.flat();
+        let emptyRow;
+    
+        for (let i = 0; i < flattened.length; i++) {
+            if (flattened[i] === 'NONE') {
+                emptyRow = Math.floor(i / 4) + 1;
+                continue;
+            }
+            for (let j = i + 1; j < flattened.length; j++) {
+                if (flattened[j] === 'NONE') {
+                    continue;
+                }
+                if (flattened[i] > flattened[j]) {
+                    inversions++;
+                }
+            }
+        }
+    
+        if (emptyRow % 2 === 0) {
+            return inversions % 2 === 1;
+        } else {
+            return inversions % 2 === 0;
+        }
     }
     
     function updateTable() {
