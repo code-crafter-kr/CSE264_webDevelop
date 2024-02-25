@@ -14,10 +14,15 @@ app.use(express.static(
   path.resolve(__dirname, "public")
 ));
 
-let month = 0;
-let year = 0;
+let globalMonth = 0;
+let globalYear = 0;
+
 
 function genCalendar(month, year, req, res) {
+
+  globalMonth = month;
+  globalYear = year;
+
   function calcLastDayOfMonth(month, year) {
     let lastDay = 0;
     if (month === 4 || month === 6 || month === 9 || month === 11)
@@ -82,20 +87,39 @@ app.get('/', function(req, res) {
 
 
 app.get("/backmonth", function(req, res) {
-// Assign new month and year and call genCalendar
-
+  let month = globalMonth;
+  let year = globalYear;
+  month -= 1;
+  if (month < 1) {
+    month = 12;
+    year -= 1;
+  }
+  genCalendar(month, year, req, res);
 });
 
 app.get("/forwardmonth", function(req, res) {
-// Assign new month and year and call genCalendar
+  let month = globalMonth;
+  let year = globalYear;
+  month += 1;
+  if (month > 12) {
+    month = 1;
+    year += 1;
+  }
+  genCalendar(month, year, req, res);
 });
 
 app.get("/backyear", function(req, res) {
-// Assign new month and year and call genCalendar
+  let month = globalMonth;
+  let year = globalYear;
+  year -= 1;
+  genCalendar(month, year, req, res);
 });
 
 app.get("/forwardyear", function(req, res) {
-// Assign new month and year and call genCalendar
+  let month = globalMonth;
+  let year = globalYear;
+  year += 1;
+  genCalendar(month, year, req, res);
 });
 
 app.listen(3000);
