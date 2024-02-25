@@ -31,6 +31,11 @@ function genCalendar(month, year, req, res) {
     return lastDay;
   }
 
+  let today = new Date();
+  let currentDay = today.getDate();
+  let currentMonth = today.getMonth() + 1;
+  let currentYear = today.getFullYear();
+
   let firstDay = new Date(year, month - 1, 1).getDay();
   let lastDayOfMonth = calcLastDayOfMonth(month, year);
 
@@ -40,8 +45,9 @@ function genCalendar(month, year, req, res) {
   }
 
   for (let day = 1; day <= lastDayOfMonth; day++) {
+    let isToday = (day === currentDay && month === currentMonth && year === currentYear) ? " class='today'" : "";
     if ((day + firstDay - 1) % 7 === 0) calendarHTML += "</tr><tr>"; 
-    calendarHTML += `<td>${day}</td>`;
+    calendarHTML += `<td${isToday}>${day}</td>`;
   }
 
   if (calendarHTML.endsWith("<tr>")) {
@@ -59,16 +65,15 @@ function genCalendar(month, year, req, res) {
   });
 }
 
-// 달력 페이지 라우트
 app.get('/calendar', function(req, res) {
   let month = parseInt(req.query.month);
   let year = parseInt(req.query.year);
   if (!month || !year) {
       const today = new Date();
-      month = today.getMonth() + 1; // JavaScript의 getMonth()는 0부터 시작하므로 1을 더해줍니다.
+      month = today.getMonth() + 1;
       year = today.getFullYear();
   }
-  genCalendar(month, year, req, res); // 달력 생성 및 응답
+  genCalendar(month, year, req, res); 
 });
 
 app.get('/', function(req, res) {

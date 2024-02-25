@@ -18,3 +18,9 @@ table, th, td {
     color: black;
     text-decoration: none;
 }
+
+
+.today { /*highlight today*/
+    background-color: yellow; 
+    font-weight: bold; 
+  }
