@@ -1,4 +1,5 @@
-// Put your name and ID here 
+// Name: sehyoun jang
+// Email: sej324@lehigh.edu
 
 const express = require("express");
 const path = require("path");

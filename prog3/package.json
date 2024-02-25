@@ -1,0 +1,16 @@
+{
+  "name": "sej324",
+  "version": "1.0.0",
+  "description": "Programming_assginment3 -CES265\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D \u001b[C\u001b[C\u001b[C CSE264",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Sehyoun Jang",
+  "license": "ISC",
+  "dependencies": {
+    "ejs": "^3.1.9",
+    "express": "^4.18.2",
+    "sprintf-js": "^1.1.3"
+  }
+}
