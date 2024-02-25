@@ -1,22 +1,30 @@
 <!DOCTYPE html>
 <html>
-  <head>
+<head>
     <meta charset="utf-8">
-    <title></title> 
-    <link rel="stylesheet" href="../styles/styles.css"/>
-  </head>
+    <title>Calendar</title> 
+    <link rel="stylesheet" href="/styles/styles.css"/>
+</head>
 <body>
   <div id="container">
     <table>
       <thead>
-        <tr><th class="btn"><a href="">&lt;&lt;</a></th><th class="btn"><a href="">&lt;</a></th><th class="title" colspan="3"><!-- month/year string goes here--></th><th class="btn"><a href="">&gt;</a></th><th class="btn"><a href="">&gt;&gt;</a></th></tr>
-        <tr class="days"><th>SU</th><th>MO</th><th>TU</th><th>WE</th><th>TH</th><th>FR</th><th>SA</th></tr>
+        <tr>
+          <th class="btn"><a href="/backyear">&lt;&lt;</a></th>
+          <th class="btn"><a href="/backmonth">&lt;</a></th>
+          <th class="title" colspan="3"><%= header %></th>
+          <th class="btn"><a href="/forwardmonth">&gt;</a></th>
+          <th class="btn"><a href="/forwardyear">&gt;&gt;</a></th>
+        </tr>
+        <tr class="days">
+          <th>SU</th><th>MO</th><th>TU</th><th>WE</th><th>TH</th><th>FR</th><th>SA</th>
+        </tr>
       </thead>
       <tbody>
-        <!-- Calendar rows and cell go here -->
+        <%- calendar %>
       </tbody>
     </table>  
   </div>
-  <script src="../scripts/script.js"></script>
+  <script src="/scripts/script.js"></script>
 </body>
 </html>
