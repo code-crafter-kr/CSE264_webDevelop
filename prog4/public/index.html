@@ -1,14 +1,55 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <title></title> 
-    <link rel="stylesheet" href="../styles/styles.css"/>
-  </head>
+
+<head>
+  <meta charset="utf-8">
+  <title>Book Library</title>
+  <link rel="stylesheet" href="../styles/styles.css" />
+  <style>
+    table,
+    th,
+    td {
+      border: 1px solid black;
+    }
+  </style>
+</head>
+
 <body>
-  <script src="https://code.jquery.com/jquery-3.7.1.js" crossorigin="anonymous"></script>  
+  <h1>Book Library</h1>
+  <form id="bookForm">
+    <label for="title">Title:</label>
+    <input type="text" id="title" name="title"><br><br>
+    <label for="author">Author:</label>
+    <input type="text" id="author" name="author">
+    <select id="authorDropdown"></select><br><br>
+    <label for="genre">Genre:</label>
+    <select id="genre" name="genre">
+      <option value="fiction">Fiction</option>
+      <option value="non-fiction">Non-Fiction</option>
+      <option value="mystery">Mystery</option>
+      <option value="romance">Romance</option>
+    </select><br><br>
+    <label for="publisher">Publisher:</label>
+    <input type="text" id="publisher" name="publisher">
+    <select id="publisherDropdown"></select><br><br>
+    <label for="year">Year:</label>
+    <input type="number" id="year" name="year"><br><br>
+    <label>Type:</label><br>
+    <input type="checkbox" id="hardcover" name="type" value="hardcover">
+    <label for="hardcover">Hardcover</label><br>
+    <input type="checkbox" id="paperback" name="type" value="paperback">
+    <label for="paperback">Paperback</label><br>
+    <input type="checkbox" id="ebook" name="type" value="ebook">
+    <label for="ebook">Ebook</label><br>
+    <input type="checkbox" id="audio" name="type" value="audio">
+    <label for="audio">Audio</label><br><br>
+    <button type="button" id="addBook">Add Book</button>
+    <button type="button" id="listBooks">List Books</button>
+  </form>
+  <table id="bookList"></table>
+
+  <script src="https://code.jquery.com/jquery-3.7.1.js" crossorigin="anonymous"></script>
   <script src="../scripts/script.js"></script>
-  <div id="container">
-  </div>
 </body>
+
 </html>
