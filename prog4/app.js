@@ -27,8 +27,10 @@ app.post('/books', (req, res) => {
     publishers.push(book.publisher);
   }
 
-  res.json({ authors, publishers });
-});
+  res.json({
+    authors: ["", ...authors],
+    publishers: ["", ...publishers]
+  });});
 
 app.get('/books', (req, res) => {
   res.json(books);
