@@ -37,13 +37,11 @@ $("#addBook").click(function () {
       $("#title, #author, #publisher, #year").val("");
       $("input[name='type']").prop("checked", false);
 
-      // 책을 추가한 후에 자동으로 책 목록 업데이트
       updateBookList();
     }
   });
 });
 
-// 책 목록을 가져와서 업데이트하는 함수
 function updateBookList() {
   $.ajax({
     type: "GET",

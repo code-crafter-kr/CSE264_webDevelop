@@ -30,7 +30,10 @@ app.post('/books', (req, res) => {
   res.json({
     authors: ["", ...authors],
     publishers: ["", ...publishers]
-  });
+  });});
+
+app.get('/books', (req, res) => {
+  res.json(books);
 });
 
 app.listen(3000);
