@@ -1,23 +1,23 @@
 body {
   font-family: 'Arial', sans-serif;
-  background-color: #f0fff0; /* Very light mint background */
+  background-color: #E0F7FA; /* Light cyan background to complement #18ACC0 */
 }
 
 h1 {
-  color: #3EB489; /* Mint color */
+  color: #18ACC0; /* Main turquoise color */
   text-align: center;
 }
 
 form {
   margin: 0 auto;
   width: 70%;
-  background-color: #f5fffa; /* Mint cream color for the form */
+  background-color: #FFFFFF; /* Pure white for the form background for clean look */
   padding: 20px;
   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
 }
 
 label {
-  color: #3EB489; /* Mint color for text */
+  color: #18ACC0; /* Main turquoise color for text */
   font-weight: bold;
 }
 
@@ -34,12 +34,12 @@ select {
 }
 
 input[type="checkbox"] + label {
-  color: #2F4F4F; /* Dark Slate Gray - for a contrast */
+  color: #2F81F5; /* Soft coral for a contrast, works well with turquoise */
 }
 
 button {
   width: 100%;
-  background-color: #3EB489; /* Mint color */
+  background-color: #18ACC0; /* Main turquoise color */
   color: white;
   padding: 14px 20px;
   margin: 8px 0;
@@ -49,7 +49,7 @@ button {
 }
 
 button:hover {
-  background-color: #2F4F4F; /* Dark Slate Gray for hover effect */
+  background-color: #2F81F5; /* Soft coral for hover effect, adds warmth */
 }
 
 table {
@@ -65,18 +65,18 @@ th, td {
 }
 
 th {
-  background-color: #3EB489; /* Mint color */
+  background-color: #18ACC0; /* Main turquoise color */
   color: white;
 }
 
 td {
-  background-color: #f5fffa; /* Mint cream color for table cells */
+  background-color: #FFFFFF; /* Pure white for table cells, for clarity */
 }
 
 tr:nth-child(even) {
-  background-color: #ddf2eb; /* Light mint stripe for even rows */
+  background-color: #B2EBF2; /* Light cyan stripe for even rows, complements #18ACC0 */
 }
 
 tr:hover {
-  background-color: #b2d8d8; /* Lighter mint for hover effect */
+  background-color: #80DEEA; /* Lighter turquoise for hover effect, for engagement */
 }
