@@ -1,34 +1,54 @@
 <!doctype html>
 <html class="no-js" lang="">
-
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Personal Library</title>
-  <link rel="stylesheet" href="css/vendor/bootstrap.min.css">
-  <link rel="stylesheet" href="css/style.css">
-  <meta name="description" content="">
-
-  <meta property="og:title" content="">
-  <meta property="og:type" content="">
-  <meta property="og:url" content="">
-  <meta property="og:image" content="">
-
-  <link rel="icon" href="/favicon.ico" sizes="any">
-  <link rel="icon" href="/icon.svg" type="image/svg+xml">
-  <link rel="apple-touch-icon" href="icon.png">
-
-  <link rel="manifest" href="site.webmanifest">
-  <meta name="theme-color" content="#fafafa">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Top 40 Songs</title>
+    <link rel="stylesheet" href="css/vendor/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
 </head>
-
 <body>
-
-  <!-- Your contents -->
-
-  <script src="js/vendor/jquery.min.js" crossorigin="anonymous"></script>
-  <script src="js/vendor/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
-  <script src="js/script.js"></script>
+    <header>
+        <h1>Top 40 Songs</h1>
+    </header>
+    <main>
+        <form id="search-form">
+            <label for="artist-dropdown">Artists:</label>
+            <select id="artist-dropdown" name="artist">
+                <option value="">--All Artist or Choose--</option>
+            </select>
+            <label for="keyword-input">Keyword:</label>
+            <input type="text" id="keyword-input" name="keyword">
+            <button type="submit">Search</button>
+        </form>
+        <div class="pagination">
+          <button id="prev-button">&lt;&lt; Prev</button>
+          <button id="next-button">Next &gt;&gt;</button>
+      </div>
+      <div class="per-page-container">
+          <label for="per-page-dropdown">Songs per page:</label>
+          <select id="per-page-dropdown" name="per-page">
+              <option value="5">5</option>
+              <option value="10" selected>10</option>
+              <option value="25">25</option>
+          </select>
+      </div>
+        <table id="song-table">
+            <thead>
+                <tr>
+                    <th>Index</th>
+                    <th>Title</th>
+                    <th>Artist</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+        <div id="song-count"></div>
+    </main>
+    <script src="js/vendor/jquery.min.js" crossorigin="anonymous"></script>
+    <script src="js/vendor/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+    <script src="js/script.js"></script>
 </body>
-
 </html>
