@@ -1,4 +1,4 @@
-// Put your name and ID here 
+// sehyoun Jang, sej324@lehigh.edu
 
 const express = require("express");
 const path = require("path");
