@@ -1,34 +1,40 @@
-<!doctype html>
-<html class="no-js" lang="">
-
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Crazy Words</title>
-  <link rel="stylesheet" href="css/vendor/bootstrap.min.css">
-  <link rel="stylesheet" href="css/style.css">
-  <meta name="description" content="">
-
-  <meta property="og:title" content="">
-  <meta property="og:type" content="">
-  <meta property="og:url" content="">
-  <meta property="og:image" content="">
-
-  <link rel="icon" href="/favicon.ico" sizes="any">
-  <link rel="icon" href="/icon.svg" type="image/svg+xml">
-  <link rel="apple-touch-icon" href="icon.png">
-
-  <link rel="manifest" href="site.webmanifest">
-  <meta name="theme-color" content="#fafafa">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fruit Smash</title>
+    <link rel="stylesheet" href="css/style.css">
 </head>
-
 <body>
+    <div class="container">
+        <div class="left-section">
+            <canvas id="game-canvas"></canvas>
+        </div>
+        <div class="right-section">
+            <div class="leaderboard">
+                <table id="leaderboard-table">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Score</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+            <div class="chat-container">
+                <div id="chat-messages"></div>
+                <input type="text" id="chat-input" placeholder="Enter message...">
+                <button id="chat-send">Send</button>
+            </div>
+            <div class="login-container">
+                <input type="text" id="username-input" placeholder="Enter username...">
+                <button id="login-button">Login</button>
+            </div>
+        </div>
+    </div>
 
-  <!-- Your contents -->
-
-  <script src="js/vendor/jquery.min.js" crossorigin="anonymous"></script>
-  <script src="js/vendor/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
-  <script src="js/script.js"></script>
+    <script src="js/script.js"></script>
 </body>
-
 </html>
