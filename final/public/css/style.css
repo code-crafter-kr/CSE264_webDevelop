@@ -1,255 +1,179 @@
-/*! HTML5 Boilerplate v9.0.0-RC1 | MIT License | https://html5boilerplate.com/ */
-
-/* main.css 3.0.0 | MIT License | https://github.com/h5bp/main.css#readme */
-/*
- * What follows is the result of much research on cross-browser styling.
- * Credit left inline and big thanks to Nicolas Gallagher, Jonathan Neal,
- * Kroc Camen, and the H5BP dev community and team.
- */
-
-/* ==========================================================================
-   Base styles: opinionated defaults
-   ========================================================================== */
-
-html {
-  color: #222;
-  font-size: 1em;
-  line-height: 1.4;
+body {
+  background-color: #f8f9fa;
 }
 
-/*
- * Remove text-shadow in selection highlight:
- * https://twitter.com/miketaylr/status/12228805301
- *
- * Customize the background color to match your design.
- */
-
-::-moz-selection {
-  background: #b3d4fc;
-  text-shadow: none;
+.container {
+  margin-top: 50px;
 }
 
-::selection {
-  background: #b3d4fc;
-  text-shadow: none;
+h1 {
+  font-size: 48px;
+  font-weight: bold;
+  color: #343a40;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
 }
 
-/*
- * A better looking default horizontal rule
- */
-
-hr {
-  display: block;
-  height: 1px;
-  border: 0;
-  border-top: 1px solid #ccc;
-  margin: 1em 0;
-  padding: 0;
+.card {
+  border: none;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
 }
 
-/*
- * Remove the gap between audio, canvas, iframes,
- * images, videos and the bottom of their containers:
- * https://github.com/h5bp/html5-boilerplate/issues/440
- */
-
-audio,
-canvas,
-iframe,
-img,
-svg,
-video {
-  vertical-align: middle;
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.15);
 }
 
-/*
- * Remove default fieldset styles.
- */
-
-fieldset {
-  border: 0;
-  margin: 0;
-  padding: 0;
+.card-title {
+  font-size: 24px;
+  font-weight: bold;
+  color: #343a40;
 }
 
-/*
- * Allow only vertical resizing of textareas.
- */
-
-textarea {
-  resize: vertical;
+.btn-primary {
+  background-color: #4db6ac;
+  border: none;
+  border-radius: 25px;
+  padding: 12px 30px;
+  font-size: 18px;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: all 0.3s ease;
 }
 
-/* ==========================================================================
-   Author's custom styles
-   ========================================================================== */
-
-/* ==========================================================================
-   Helper classes
-   ========================================================================== */
-
-/*
- * Hide visually and from screen readers
- */
-
-.hidden,
-[hidden] {
-  display: none !important;
+.btn-primary:hover {
+  background-color: #00897b;
+  transform: scale(1.05);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
 }
 
-/*
- * Hide only visually, but have it available for screen readers:
- * https://snook.ca/archives/html_and_css/hiding-content-for-accessibility
- *
- * 1. For long content, line feeds are not interpreted as spaces and small width
- *    causes content to wrap 1 word per line:
- *    https://medium.com/@jessebeach/beware-smushed-off-screen-accessible-text-5952a4c2cbfe
- */
-
-.visually-hidden {
-  border: 0;
-  clip: rect(0, 0, 0, 0);
-  height: 1px;
-  margin: -1px;
-  overflow: hidden;
-  padding: 0;
-  position: absolute;
-  white-space: nowrap;
-  width: 1px;
-  /* 1 */
-}
-
-/*
- * Extends the .visually-hidden class to allow the element
- * to be focusable when navigated to via the keyboard:
- * https://www.drupal.org/node/897638
- */
-
-.visually-hidden.focusable:active,
-.visually-hidden.focusable:focus {
-  clip: auto;
-  height: auto;
-  margin: 0;
-  overflow: visible;
-  position: static;
-  white-space: inherit;
-  width: auto;
-}
-
-/*
- * Hide visually and from screen readers, but maintain layout
- */
-
-.invisible {
-  visibility: hidden;
-}
-
-/*
- * Clearfix: contain floats
- *
- * The use of `table` rather than `block` is only necessary if using
- * `::before` to contain the top-margins of child elements.
- */
-
-.clearfix::before,
-.clearfix::after {
-  content: "";
-  display: table;
-}
-
-.clearfix::after {
-  clear: both;
-}
-
-/* ==========================================================================
-   EXAMPLE Media Queries for Responsive Design.
-   These examples override the primary ('mobile first') styles.
-   Modify as content requires.
-   ========================================================================== */
-
-@media only screen and (min-width: 35em) {
-  /* Style adjustments for viewports that meet the condition */
-}
-
-@media print,
-  (-webkit-min-device-pixel-ratio: 1.25),
-  (min-resolution: 1.25dppx),
-  (min-resolution: 120dpi) {
-  /* Style adjustments for high resolution devices */
-}
-
-/* ==========================================================================
-   Print styles.
-   Inlined to avoid the additional HTTP request:
-   https://www.phpied.com/delay-loading-your-print-css/
-   ========================================================================== */
-
-@media print {
-  *,
-  *::before,
-  *::after {
-    background: #fff !important;
-    color: #000 !important;
-    /* Black prints faster */
-    box-shadow: none !important;
-    text-shadow: none !important;
-  }
-
-  a,
-  a:visited {
-    text-decoration: underline;
-  }
-
-  a[href]::after {
-    content: " (" attr(href) ")";
-  }
-
-  abbr[title]::after {
-    content: " (" attr(title) ")";
-  }
-
-  /*
-   * Don't show links that are fragment identifiers,
-   * or use the `javascript:` pseudo protocol
-   */
-  a[href^="#"]::after,
-  a[href^="javascript:"]::after {
-    content: "";
-  }
-
-  pre {
-    white-space: pre-wrap !important;
-  }
-
-  pre,
-  blockquote {
-    border: 1px solid #999;
-    page-break-inside: avoid;
-  }
-
-  tr,
-  img {
-    page-break-inside: avoid;
-  }
-
-  p,
-  h2,
-  h3 {
-    orphans: 3;
-    widows: 3;
-  }
-
-  h2,
-  h3 {
-    page-break-after: avoid;
-  }
-}
-
-#booktable, #booktable tr, #booktable td, #booktable th {
-  border: 2px solid black;
+#sudoku-board {
   border-collapse: collapse;
+  margin: 0 auto;
+  font-size: 24px;
 }
 
-td {
-  padding: 4px;
+#sudoku-board td {
+  border: 1px solid #ccc;
+  width: 40px;
+  height: 40px;
+  text-align: center;
+  vertical-align: middle;
+  font-weight: bold;
+  box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s;
+}
+
+#sudoku-board td:nth-child(3n) {
+  border-right: 2px solid #333;
+}
+
+#sudoku-board tr:nth-child(3n) td {
+  border-bottom: 2px solid #333;
+}
+
+#sudoku-board td:hover {
+  background-color: #f5f5f5;
+}
+
+#sudoku-board input {
+  width: 100%;
+  height: 100%;
+  border: none;
+  text-align: center;
+  font-size: 24px;
+  font-weight: bold;
+  background-color: transparent;
+  outline: none;
+}
+
+#hint {
+  background-color: #007bff;
+  border-color: #007bff;
+  color: #fff;
+}
+
+#hint:hover {
+  background-color: #0056b3;
+  border-color: #0056b3;
+}
+
+#new-game {
+  background-color: #28a745;
+  border-color: #28a745;
+  color: #fff;
+}
+
+#new-game:hover {
+  background-color: #1e7e34;
+  border-color: #1e7e34;
+}
+
+#sudoku-board td.fixed {
+  background-color: #eee;
+  color: #333;
+}
+
+#sudoku-board.incorrect {
+  background-color: #ff0000;
+  transition: background-color 0.5s;
+}
+
+.fixed {
+  background-color: #e0e0e0;  /* 고정 숫자의 배경색 */
+  font-weight: bold;  /* 고정 숫자를 굵게 표시 */
+  color: black;  /* 고정 숫자 색상 */
+}
+
+.cell-input {
+  background-color: #ffffff;  /* 입력 가능한 셀의 배경색 */
+  color: mediumspringgreen;  /* 입력 가능한 숫자의 색상 */
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+#sudoku-board {
+  transition: background-color 0.5s;
+}
+
+#message-box {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #f9f9f9; /* 부드러운 그레이 톤 사용 */
+  padding: 20px;
+  border-radius: 10px; /* 더 큰 둥근 모서리 */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* 부드럽고 확산된 그림자 */
+  z-index: 9999;
+  border: 1px solid #ddd; /* 경계선 추가 */
+  width: 300px; /* 고정된 너비 */
+  text-align: center; /* 텍스트 중앙 정렬 */
+}
+
+#message-box.hidden {
+  display: none;
+}
+
+#message-text {
+  font-size: 16px; /* 조금 더 작고 세련된 폰트 크기 */
+  margin-bottom: 20px; /* 텍스트와 버튼 사이의 간격 조정 */
+  color: #333; /* 더 어두운 글자색 */
+}
+
+#close-message {
+  padding: 10px 20px;
+  background-color: #5c67f2; /* 밝은 블루 톤 */
+  color: white;
+  border: none;
+  border-radius: 5px; /* 버튼의 모서리 둥글게 */
+  cursor: pointer; /* 클릭 가능한 요소임을 나타내는 커서 */
+  font-weight: bold;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* 버튼에도 그림자 추가 */
 }

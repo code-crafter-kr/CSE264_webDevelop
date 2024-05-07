@@ -1,34 +1,67 @@
 <!doctype html>
 <html class="no-js" lang="">
-
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Crazy Words</title>
+  <title>Sudoku Game</title>
   <link rel="stylesheet" href="css/vendor/bootstrap.min.css">
   <link rel="stylesheet" href="css/style.css">
   <meta name="description" content="">
-
   <meta property="og:title" content="">
   <meta property="og:type" content="">
   <meta property="og:url" content="">
   <meta property="og:image" content="">
-
   <link rel="icon" href="/favicon.ico" sizes="any">
   <link rel="icon" href="/icon.svg" type="image/svg+xml">
   <link rel="apple-touch-icon" href="icon.png">
-
   <link rel="manifest" href="site.webmanifest">
   <meta name="theme-color" content="#fafafa">
 </head>
-
 <body>
-
-  <!-- Your contents -->
-
+  <div class="container">
+    <h1 class="text-center my-5">Sudoku</h1>
+    <div class="row justify-content-center">
+      <div class="col-md-6">
+        <div class="card" id="menu">
+          <div class="card-body">
+            <h3 class="card-title text-center">Select Difficulty</h3>
+            <div class="d-grid gap-2">
+              <button class="btn btn-primary" id="easy">Easy</button>
+              <button class="btn btn-primary" id="medium">Medium</button>
+              <button class="btn btn-primary" id="hard">Hard</button>
+            </div>
+          </div>
+        </div>
+        <div id="message-box" class="hidden">
+          <p id="message-text"></p>
+          <button id="close-message">Close</button>
+      </div>
+        <div class="card" id="game" style="display: none;">
+          <div class="card-body">
+            <h3 class="card-title text-center">Solve !</h3>
+            <div class="row">
+              <div class="col-md-9">
+            <table id="sudoku-board">
+              <tbody>
+                <!-- 테이블 내용이 여기에 동적으로 생성됩니다 -->
+              </tbody>
+            </table>
+              </div>
+              <div class="col-md-3">
+                <div class="d-grid gap-2">
+                  <button class="btn btn-secondary" id="hint">Hint</button>
+                  <button class="btn btn-secondary" id="new-game">New Game</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
   <script src="js/vendor/jquery.min.js" crossorigin="anonymous"></script>
   <script src="js/vendor/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
   <script src="js/script.js"></script>
 </body>
-
 </html>
