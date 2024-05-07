@@ -122,14 +122,14 @@ h1 {
 }
 
 .fixed {
-  background-color: #e0e0e0;  /* 고정 숫자의 배경색 */
-  font-weight: bold;  /* 고정 숫자를 굵게 표시 */
-  color: black;  /* 고정 숫자 색상 */
+  background-color: #e0e0e0;  
+  font-weight: bold;  
+  color: black;  
 }
 
 .cell-input {
-  background-color: #ffffff;  /* 입력 가능한 셀의 배경색 */
-  color: mediumspringgreen;  /* 입력 가능한 숫자의 색상 */
+  background-color: #ffffff;  
+  color: mediumspringgreen;  
 }
 
 input[type="number"]::-webkit-inner-spin-button,
@@ -147,14 +147,14 @@ input[type="number"]::-webkit-outer-spin-button {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background-color: #f9f9f9; /* 부드러운 그레이 톤 사용 */
+  background-color: #f9f9f9; 
   padding: 20px;
-  border-radius: 10px; /* 더 큰 둥근 모서리 */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* 부드럽고 확산된 그림자 */
+  border-radius: 10px; 
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   z-index: 9999;
-  border: 1px solid #ddd; /* 경계선 추가 */
-  width: 300px; /* 고정된 너비 */
-  text-align: center; /* 텍스트 중앙 정렬 */
+  border: 1px solid #ddd; 
+  width: 300px;
+  text-align: center;
 }
 
 #message-box.hidden {
@@ -162,18 +162,38 @@ input[type="number"]::-webkit-outer-spin-button {
 }
 
 #message-text {
-  font-size: 16px; /* 조금 더 작고 세련된 폰트 크기 */
-  margin-bottom: 20px; /* 텍스트와 버튼 사이의 간격 조정 */
-  color: #333; /* 더 어두운 글자색 */
+  font-size: 16px; 
+  margin-bottom: 20px; 
+  color: #333; 
 }
 
 #close-message {
   padding: 10px 20px;
-  background-color: #5c67f2; /* 밝은 블루 톤 */
+  background-color: #5c67f2; 
   color: white;
   border: none;
-  border-radius: 5px; /* 버튼의 모서리 둥글게 */
-  cursor: pointer; /* 클릭 가능한 요소임을 나타내는 커서 */
+  border-radius: 5px; 
+  cursor: pointer; 
   font-weight: bold;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* 버튼에도 그림자 추가 */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
+}
+
+@keyframes flash {
+  0%, 100% { background-color: transparent; }
+  50% { background-color: lightgreen; }
+}
+
+@keyframes flash-error {
+  0%, 100% { background-color: transparent; }
+  50% { background-color: red; }
+}
+
+.error-highlight {
+  background-color: red; 
+  animation: flash-error 2s ease-out;
+}
+
+.hint-highlight {
+  background-color: #ccffcc; 
+  animation: flash 2s ease-out;
 }

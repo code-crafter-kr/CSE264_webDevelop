@@ -83,8 +83,14 @@ def generate_puzzle(difficulty):
     answer = generate_sudoku()
     for i in answer:
         print(i)
-    if difficulty == 'hard':
+
+    if difficulty == 'easy':
         board = remove_numbers_from_board(np.copy(answer), holes=1)
+    elif difficulty == 'medium':
+        board = remove_numbers_from_board(np.copy(answer), holes=30)
+    elif difficulty == 'hard':
+        board = remove_numbers_from_board(np.copy(answer), holes=50)
+
     initial_board = np.copy(board)
     return board
 
@@ -120,6 +126,57 @@ def restart_puzzle():
     board = np.zeros((9, 9), dtype=int)  # 스도쿠 보드 초기화
     return jsonify({'message': 'Game has been restarted'}), 200
 
+def calculate_checks(board):
+    chk_row = [[False] * 10 for _ in range(9)]
+    chk_col = [[False] * 10 for _ in range(9)]
+    chk_box = [[False] * 10 for _ in range(9)]
+
+    for i in range(9):
+        for j in range(9):
+            num = board[i][j]
+            if num != 0:
+                chk_row[i][num] = True
+                chk_col[j][num] = True
+                box_index = (i // 3) * 3 + (j // 3)
+                chk_box[box_index][num] = True
+
+    return chk_row, chk_col, chk_box
+
+def find_fewest_options(board):
+    chk_row, chk_col, chk_box = calculate_checks(board)
+    min_options = 10
+    best_cell = None
+    for i in range(9):
+        for j in range(9):
+            if board[i][j] == 0:
+                options = 0
+                for n in range(1, 10):
+                    if not (chk_row[i][n] or chk_col[j][n] or chk_box[(i // 3) * 3 + (j // 3)][n]):
+                        options += 1
+                if options < min_options:
+                    min_options = options
+                    best_cell = (i, j)
+    return best_cell
+
+
+
+@app.route('/api/hint', methods=['GET'])
+def get_hint():
+    global board, answer
+    for i in range(9):
+        for j in range(9):
+            if board[i][j] != answer[i][j] and board[i][j] != 0:
+                # 첫 번째 발견된 오류 반환
+                return jsonify({'error': {'row': i, 'col': j}})
+    
+    # 오류가 없다면 힌트를 찾아 반환
+    cell = find_fewest_options(board)
+    if cell:
+        return jsonify({'hint': {'row': cell[0], 'col': cell[1]}})
+    else:
+        return jsonify({'message': 'No hints available or puzzle is complete'}), 404
+
+    
 
 if __name__ == '__main__':
     app.run()

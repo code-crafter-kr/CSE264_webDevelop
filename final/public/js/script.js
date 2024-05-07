@@ -108,11 +108,6 @@ $('#close-message').on('click', function() {
     $('#message-box').addClass('hidden');
 });
     
-    // 힌트 버튼 클릭 이벤트 핸들러
-    $('#hint').click(function() {
-      // 힌트 기능 구현
-      alert('Hint button clicked!');
-    });
   
     // 'New Game' 버튼 클릭 이벤트 핸들러
     $('#new-game').click(function() {
@@ -129,6 +124,36 @@ $('#close-message').on('click', function() {
         }
       });
     });
+    
+    // 힌트 버튼 클릭 이벤트 핸들러
+    $('#hint').click(function() {
+      $.ajax({
+        url: 'http://localhost:5000/api/hint',
+        method: 'GET',
+        success: function(response) {
+          if (response.error) {
+            var selector = `#sudoku-board tr:eq(${response.error.row}) td:eq(${response.error.col}) input`;
+            $(selector).addClass('error-highlight');
+            setTimeout(function() {
+              $(selector).removeClass('error-highlight');
+            }, 2000); // 2초 후 하이라이트 제거
+          } else if (response.hint) {
+            var selector = `#sudoku-board tr:eq(${response.hint.row}) td:eq(${response.hint.col}) input`;
+            $(selector).addClass('hint-highlight');
+            setTimeout(function() {
+              $(selector).removeClass('hint-highlight');
+            }, 2000); // 2초 후 하이라이트 제거
+          } else {
+            alert(response.message);
+          }
+        },
+        error: function() {
+          alert('Error occurred while requesting a hint.');
+        }
+      });
+    });
+    
+
   });
 
   
